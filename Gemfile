@@ -14,10 +14,10 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 4.0.2'
   gem 'guard'
   gem 'guard-rspec', require: false
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 4.0.2'
 end
 
 group :development do
