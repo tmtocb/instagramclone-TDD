@@ -14,6 +14,8 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'pry-rails'
