@@ -9,18 +9,25 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
+gem 'rubocop', require: false
 gem 'sass-rails', '>= 6'
+gem 'strong_migrations'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 4.0.2'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-rspec', require: false
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 4.0.2'
 end
 
 group :development do
+  gem 'brakeman'
+  gem 'bullet'
+  gem 'bundler-audit'
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
