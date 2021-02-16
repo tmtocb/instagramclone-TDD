@@ -12,7 +12,21 @@
     <div class="user-section">
       <a><i class="fa fa-compass"></i></a>
       <a><i class="fa fa-heart"></i></a>
-      <a><i class="fa fa-user"></i></a>
+      <% if user_signed_in? %>
+        <%= link_to edit_user_registration_path do %>
+          <i class='fa fa-user-edit'></i>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class='fa fa-sign-out-alt'></i>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_registration_path do %>
+          <i class='fa fa-user-plus'></i>
+        <% end %>
+        <%= link_to new_user_session_path do %>
+          <i class='fa fa-sign-in-alt'></i>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </nav>
