@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light bg-light d-flex">
+  <div class="container">
+      <%= link_to root_path, class: 'navbar-brand fa-stack' do %>
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-camera fa-stack-1x fa-inverse"></i>
+      <% end %>
+    <div class="m-auto">
+      <form class="form-inline search-form">
+        <input class="form-control mr-sm-2" type="search" placeholder="@search" aria-label="Search">
+      </form>
+    </div>
+    <div class="user-section">
+      <a><i class="fa fa-compass"></i></a>
+      <a><i class="fa fa-heart"></i></a>
+      <a><i class="fa fa-user"></i></a>
+    </div>
+  </div>
+</nav>
