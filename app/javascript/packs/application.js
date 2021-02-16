@@ -20,4 +20,4 @@ import "@fortawesome/fontawesome-free/css/all"
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
-import gtag from "src/analytics"
+
