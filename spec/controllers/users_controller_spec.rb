@@ -47,7 +47,66 @@ describe UsersController do
 
       it do
         subject
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(302)
+      end
+    end
+  end
+
+  describe 'PUT update' do
+    subject { put :update, params: params }
+    let(:user) { create(:user, email: 'tmt1@example.com' ) }
+
+    context 'when user is signed in' do
+      before do
+        sign_in(user)
+      end
+
+      context 'valid params' do
+        let(:params) do
+          { id: user.id, user: { email: 'tmt2@example.com', phone: '695454232' } }
+        end
+
+        it 'updates user' do
+          expect { subject }
+            .to change { user.reload.email }
+            .from('tmt1@example.com')
+            .to('tmt2@example.com')
+            .and change { user.reload.phone }
+            .from(nil)
+            .to(695454232)
+        end
+      end
+
+      context 'invalid params' do
+        let(:params) do
+          { id: user.id, user: { email: '' } }
+        end
+
+        it 'does not update user' do
+          expect { subject }.not_to change { user.reload.email }
+        end
+      end
+    end
+
+    context 'when user is NOT signed in' do
+      context 'valid params' do
+        let(:params) do
+          { id: user.id, user: { email: 'tmt2@example.com', phone: '695454232' } }
+        end
+
+        it 'does not update user' do
+          expect { subject }.not_to change { user.reload.email }
+        end
+      end
+
+      context 'invalid params' do
+        let(:params) do
+          { id: user.id, user: { email: '' } }
+        end
+
+        it 'does not update user' do
+          expect { subject }.not_to change { user.reload.email }
+        end
       end
     end
   end
