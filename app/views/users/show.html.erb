@@ -9,9 +9,9 @@
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
         <h2 class="username">tmtocb</h2>
-        <a class="edit-profile">
+        <%= link_to edit_user_path(current_user), class: 'edit-profile' do %>
           <button>Edit Profile</button>
-        </a>
+        <% end %>
       </div>
       <ul class="posts">
         <li><span>12</span> posts</li>
