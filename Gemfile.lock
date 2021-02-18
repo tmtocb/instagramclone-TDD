@@ -124,6 +124,8 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
+    invisible_captcha (1.1.0)
+      rails (>= 4.2)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     listen (3.4.1)
@@ -315,6 +317,7 @@ DEPENDENCIES
   faker
   guard
   guard-rspec
+  invisible_captcha
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
