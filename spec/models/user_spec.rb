@@ -12,4 +12,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column(:phone) }
     it { is_expected.to have_db_column(:gender) }
   end
+
+  describe '#associations' do
+    it { should have_many(:posts).dependent(:destroy) }
+  end
 end
