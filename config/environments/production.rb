@@ -110,4 +110,12 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.default_url_options = { host: 'tmt-instagram.herokuapp.com' }
+
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  email: {
+    deliver_with: :deliver, 
+    email_prefix: '[PREFIX] ',
+    sender_address: %{"app error" <app.error@tmt-instagram.herokuapp.com>},
+    exception_recipients: %w{tmt.contact.business@gmail.com}
+  }
 end

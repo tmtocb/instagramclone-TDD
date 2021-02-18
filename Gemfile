@@ -42,3 +42,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 4.0'
 end
+
+group :production do
+  gem 'exception_notification'
+end
