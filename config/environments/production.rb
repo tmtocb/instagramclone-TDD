@@ -1,5 +1,18 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_mailer.default_url_options = {host: "tmt-instagram.herokuapp.com", protocol: "https"}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'email-smtp.eu-north-1.amazonaws.com',
+    user_name: Rails.application.credentials.dig(:amazon_ses, :username),
+    password: Rails.application.credentials.dig(:amazon_ses, :password),
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -115,7 +128,7 @@ Rails.application.configure do
   email: {
     deliver_with: :deliver, 
     email_prefix: '[PREFIX] ',
-    sender_address: %{"app error" <app.error@tmt-instagram.herokuapp.com>},
+    sender_address: %{"app error" <tmt.contact.business@gmail.com>},
     exception_recipients: %w{tmt.contact.business@gmail.com}
   }
 end
