@@ -10,4 +10,8 @@ RSpec.describe Post, type: :model do
   describe '#associations' do
     it { should belong_to(:user) }
   end
+
+  describe '#attachments' do
+    it { should have_one_attached(:image) }
+  end
 end
