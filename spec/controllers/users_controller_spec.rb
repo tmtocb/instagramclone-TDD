@@ -54,7 +54,7 @@ describe UsersController do
 
   describe 'PUT update' do
     subject { put :update, params: params }
-    let(:user) { create(:user, email: 'tmt1@example.com' ) }
+    let(:user) { create(:user, website: 'tmt1example.com' ) }
 
     context 'when user is signed in' do
       before do
@@ -63,14 +63,14 @@ describe UsersController do
 
       context 'valid params' do
         let(:params) do
-          { id: user.id, user: { email: 'tmt2@example.com', phone: '695454232' } }
+          { id: user.id, user: { website: 'tmt2example.com', phone: '695454232' } }
         end
 
         it 'updates user' do
           expect { subject }
-            .to change { user.reload.email }
-            .from('tmt1@example.com')
-            .to('tmt2@example.com')
+            .to change { user.reload.website }
+            .from('tmt1example.com')
+            .to('tmt2example.com')
             .and change { user.reload.phone }
             .from(nil)
             .to(695454232)
