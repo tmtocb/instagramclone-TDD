@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 
+  def index
+    @posts = Post.order(created_at: :desc)
+    @post = Post.new
+  end
+
   def new
     @post = Post.new
   end

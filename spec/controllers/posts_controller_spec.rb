@@ -2,6 +2,45 @@ require 'rails_helper'
 
 describe PostsController do
 
+  describe 'GET index' do
+    context 'when posts are present' do
+      let(:user) { create(:user) }
+      before do
+        sign_in(user)
+        get :index
+      end
+      let!(:post) { create(:post, user: user) }
+
+      it 'assigns @posts' do
+        expect(assigns(:posts)).to eq([post])
+      end
+
+      it 'renders the index template' do
+        expect(response).to render_template(:index)
+      end
+
+      it do
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context 'when no posts present' do
+      before { get :index }
+
+      it 'assigns @postss' do
+        expect(assigns(:posts)).to eq([])
+      end
+
+      it 'renders the index template' do
+        expect(response).to render_template(:index)
+      end
+
+      it do
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+
   describe 'GET new' do
     context 'when user is signed in' do
       let(:user) { create(:user) }
