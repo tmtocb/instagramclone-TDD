@@ -1,0 +1,14 @@
+<%= form_with(model: @post, local: true) do |f| %>
+  <%= render 'layouts/errors' %>
+  <div class='form-upload'>
+    <div class="form-group">
+      <%= f.text_field :description, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.file_field :image %>
+    </div>
+    <div class="text-center">
+      <%= f.submit 'Create Post', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

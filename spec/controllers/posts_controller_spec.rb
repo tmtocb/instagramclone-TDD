@@ -80,7 +80,8 @@ describe PostsController do
     context 'when user is NOT signed in' do
       context 'valid params' do
         let(:params) do
-          { post: { description: 'abcdefghijklmnoprstuwxyz' } }
+          file = fixture_file_upload(Rails.root.join('public', 'avatar.jpg'), 'image/jpg')
+          { post: { description: 'abcdefghijklmnoprstuwxyz', image: file } }
         end
 
         it 'does not create new post' do
