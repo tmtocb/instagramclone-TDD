@@ -5,6 +5,7 @@ ruby '2.7.2'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 
+gem 'active_storage_validations'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'devise'
